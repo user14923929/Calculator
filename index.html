@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        input, select, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+
+        input[name="answer"] {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        center {
+            margin-top: 50px;
+        }
+
+        select {
+            padding: 5px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+        }
+
+        #answer {
+            margin-top: 10px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Calculator</h1></center>
+    <br>
+    <center>
+        <form>
+            <input type="number" name="num1" placeholder="Number 1">
+            <input type="number" name="num2" placeholder="Number 2">
+            <select name="operator">
+                <option>None</option>
+                <option>Add</option>
+                <option>Subtract</option>
+                <option>Multiply</option>
+                <option>Divide</option>
+                <option>Sin</option>
+                <option>Cos</option>
+                <option>Tan</option>
+                <option>Square Root</option>
+            </select>
+            <br>
+            <button name="submit" value="submit">Calculate</button>
+        </form>
+    </center>
+    <input type="text" name="answer" placeholder="Answer" disabled id="answer">
+    <script>
+        const form = document.querySelector('form');
+        const answer = document.querySelector('input[name="answer"]');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const num1 = parseInt(form.querySelector('input[name="num1"]').value);
+            const num2 = parseInt(form.querySelector('input[name="num2"]').value);
+            const operator = form.querySelector('select[name="operator"]').value;
+            let result;
+
+            switch (operator) {
+                case 'None':
+                    result = 'Please select an operator';
+                    break;
+                case 'Add':
+                    result = num1 + num2;
+                    break;
+                case 'Subtract':
+                    result = num1 - num2;
+                    break;
+                case 'Multiply':
+                    result = num1 * num2;
+                    break;
+                case 'Divide':
+                    result = num1 / num2;
+                    break;
+                case 'Sin':
+                    result = Math.sin(num1);
+                    break;
+                case 'Cos':
+                    result = Math.cos(num1);
+                    break;
+                case 'Tan':
+                    result = Math.tan(num1);
+                    break;
+                case 'Square Root':
+                    result = Math.sqrt(num1);
+                    break;
+                default:
+                    result = 'Please select an operator';
+                    break;
+            }
+
+            answer.value = result;
+        });
+    </script>
+</body>
+</html>
