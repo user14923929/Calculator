@@ -8,7 +8,7 @@ form.addEventListener('submit', (e) => {
     const operator = form.querySelector('select[name="operator"]').value;
     let result;
 
-    if (!num1 && !num2) {
+    if ((!num1 && !num2) && !(["Sin", "Cos", "Tan", "Square Root", "Round"].includes(operator))) {
         result = "Plase enter 1st and 2nd number";
         answer.value = result;
     } else {

@@ -24,10 +24,6 @@ button:hover {
     background-color: #45a049;
 }
 
-body {
-    background-color: #f1f1f1;
-}
-
 input[name="answer"] {
     display: block;
     margin: 0 auto;
